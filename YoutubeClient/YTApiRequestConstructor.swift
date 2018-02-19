@@ -15,17 +15,17 @@ fileprivate func getKey()-> String{
 struct YTApiRequestConstructor{
     
     static func searchRequest(forQuery query: String, pageToken: String?=nil)-> URLRequest{
-        let url = URL(string: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)&fields=items(id(kind%2CplaylistId%2CvideoId)%2Csnippet(channelTitle%2Cdescription%2CpublishedAt%2Cthumbnails%2Fhigh%2Furl%2Ctitle))%2CnextPageToken%2CpageInfo%2CprevPageToken&key=\(getKey())\(pageToken != nil ? "&pageToken=\(pageToken!)":"")")!
+        let url = URL(string: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)&type=video%2Cplaylist&fields=items(id(kind%2CplaylistId%2CvideoId))%2CnextPageToken%2CpageInfo%2CprevPageToken&key=\(getKey())\(pageToken != nil ? "&pageToken=\(pageToken!)":"")")!
         return URLRequest(url: url)
     }
     
-    static func videoListRequest(forId id: String)-> URLRequest{
-        let url = URL(string: "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=\(id)&fields=items(snippet(channelTitle%2Cdescription%2CpublishedAt%2Ctitle))%2CpageInfo&key=\(getKey())")!
+    static func videoListRequest(forIds ids: [String])-> URLRequest{
+        let url = URL(string: "https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=\(ids.joined(separator: "%2C"))&fields=items(contentDetails%2Fduration%2Cid%2Ckind%2Csnippet(channelTitle%2CpublishedAt%2Ctitle))%2CpageInfo&key=\(getKey())")!
         return URLRequest(url: url)
     }
     
-    static func playlistListRequest(forId id: String)-> URLRequest{
-        let url = URL(string: "https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=\(id)&fields=items(snippet(channelTitle%2Cdescription%2CpublishedAt%2Cthumbnails%2Fhigh%2Furl%2Ctitle))&key=\(getKey())")!
+    static func playlistListRequest(forIds ids: [String])-> URLRequest{
+        let url = URL(string: "https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&id=\(ids.joined(separator: "%2C"))&fields=items(contentDetails%2Cid%2Ckind%2Csnippet(channelTitle%2CpublishedAt%2Ctitle))%2CpageInfo&key=\(getKey())")!
         return URLRequest(url: url)
     }
     

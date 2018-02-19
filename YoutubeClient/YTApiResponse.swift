@@ -8,29 +8,12 @@
 
 import Foundation
 
-fileprivate let decoder: JSONDecoder = {
+public struct YTApiResponse<ItemType: Decodable>: Decodable{
     
-    let f = DateFormatter()
-    f.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSX"
-    
-    let d = JSONDecoder()
-    d.dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.formatted(f)
-    
-    return d
-}()
-
-public struct YTApiResponse: Decodable{
-    
-    static func decode(from data: Data) throws -> YTApiResponse{
-        return try decoder.decode(YTApiResponse.self, from: data)
+    private var nextPageToken: String?
+    public var hasNextPage: Bool{
+        return nextPageToken != nil
     }
-    
-    public var nextPageToken: String?
-//    var prevPageToken: String?
-    
-//    public var hasPrevPage: Bool{
-//        return prevPageToken != nil
-//    }
     
     public let pageInfo: PageInfo
     
@@ -44,10 +27,14 @@ public struct YTApiResponse: Decodable{
         }
     }
     
-    public let items: [YTApiResult]
+    public let items: [ItemType]
     
     enum CodingKeys: String, CodingKey{
         case nextPageToken, pageInfo, items
+    }
+    
+    public func getNextPage(forQuery query: String, onComplete handler2: @escaping YTListResponseHandler){
+        YTClient.search(forQuery: query, pageToken: nextPageToken, onComplete: handler2)
     }
     
 }

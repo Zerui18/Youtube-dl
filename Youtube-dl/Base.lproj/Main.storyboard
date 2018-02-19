@@ -1,24 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F7u-r6-uxh">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Search Youtube -->
+        <scene sceneID="Dyr-s9-Gna">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController id="sm8-wP-DRx" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZaY-C8-iXs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="220" id="agK-83-Z21">
+                                <rect key="frame" x="0.0" y="28" width="375" height="220"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="agK-83-Z21" id="Ewb-zq-Wqv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="219.66666666666666"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3P-DA-GOv">
+                                            <rect key="frame" x="53.666666666666657" y="17" width="266.66666666666674" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="f3P-DA-GOv" secondAttribute="height" multiplier="480:270" id="87M-eA-POB"/>
+                                                <constraint firstAttribute="height" constant="150" id="SHP-fu-rlc"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="bVK-gs-9DH">
+                                            <rect key="frame" x="53.666666666666657" y="173" width="266.66666666666674" height="38.666666666666657"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99:99:99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVw-bq-fB8">
+                                            <rect key="frame" x="262.33333333333331" y="145" width="50" height="14"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45205215669014087" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bVK-gs-9DH" firstAttribute="trailing" secondItem="f3P-DA-GOv" secondAttribute="trailing" id="0aM-nk-SyC"/>
+                                        <constraint firstItem="f3P-DA-GOv" firstAttribute="centerX" secondItem="Ewb-zq-Wqv" secondAttribute="centerX" id="Igt-4K-Hnb"/>
+                                        <constraint firstItem="f3P-DA-GOv" firstAttribute="trailing" secondItem="lVw-bq-fB8" secondAttribute="trailing" constant="8" id="LBY-LI-11t"/>
+                                        <constraint firstItem="f3P-DA-GOv" firstAttribute="top" secondItem="Ewb-zq-Wqv" secondAttribute="topMargin" constant="6" id="Rr4-df-vP2"/>
+                                        <constraint firstItem="bVK-gs-9DH" firstAttribute="leading" secondItem="f3P-DA-GOv" secondAttribute="leading" id="SC6-vv-6Vd"/>
+                                        <constraint firstItem="f3P-DA-GOv" firstAttribute="bottom" secondItem="lVw-bq-fB8" secondAttribute="bottom" constant="8" id="aaW-4a-XgN"/>
+                                        <constraint firstAttribute="bottom" secondItem="bVK-gs-9DH" secondAttribute="bottom" constant="8" id="gMm-O2-YE3"/>
+                                        <constraint firstItem="bVK-gs-9DH" firstAttribute="top" secondItem="f3P-DA-GOv" secondAttribute="bottom" constant="6" id="mEA-SK-Mq2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sm8-wP-DRx" id="sug-mC-n3P"/>
+                            <outlet property="delegate" destination="sm8-wP-DRx" id="LGF-Ac-4qy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search Youtube " id="UQs-SC-qb7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lry-7P-1aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="504.80000000000001" y="73.891625615763544"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kWw-uc-xMG">
+            <objects>
+                <navigationController id="F7u-r6-uxh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="S59-5O-MKn">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sm8-wP-DRx" kind="relationship" relationship="rootViewController" id="h6n-0N-ax8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmi-nl-kPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-447" y="74"/>
         </scene>
     </scenes>
 </document>
