@@ -6,11 +6,21 @@
 //  Copyright © 2018 Chen Zerui. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-public func reformatISO8601Time(iso8601: String) -> String {
+func formatDuration(fromDouble timeInterval: Double) -> String {
     
-    let nsISO8601 = NSString(string: iso8601)
+    var seconds = timeInterval
+    let hours = floor(seconds / 3600)
+    seconds -= hours * 3600
+    let minutes = floor(seconds / 60)
+    seconds -= minutes * 60
+    
+    return String(format: "%d:%02d:%02d", Int(hours), Int(minutes), Int(minutes))
+}
+
+func parseISO8601Duration(fromString string: String)-> Double {
+    let nsISO8601 = NSString(string: string)
     
     var hours = 0, minutes = 0, seconds = 0
     var i = 0
@@ -44,10 +54,8 @@ public func reformatISO8601Time(iso8601: String) -> String {
         }
     }
     
-    if hours > 0 {
-        return String(format: "%d:%02d:%02d", hours, minutes, seconds)
-    }
+    let secondsTotal = Double(hours * 3600 + minutes * 60 + seconds)
     
-    return String(format: "%d:%02d", minutes, seconds)
-    
+    return secondsTotal
 }
+

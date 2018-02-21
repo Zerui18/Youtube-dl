@@ -1,5 +1,5 @@
 //
-//  UIViewController+Alert.swift
+//  UIViewController+Extension.swift
 //  Youtube-dl
 //
 //  Created by Chen Zerui on 19/2/18.
