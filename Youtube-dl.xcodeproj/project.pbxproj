@@ -222,6 +222,16 @@
 			path = "Video+Downloader";
 			sourceTree = "<group>";
 		};
+		01065F01203D5E6300A89149 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				01E0F584203A8D9E00DDEF8E /* UIViewController+Extension.swift */,
+				01E0F586203A8E5F00DDEF8E /* GlobalFunctions.swift */,
+				01E0F592203AAFAD00DDEF8E /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		01C8F93320385A44003A92E9 = {
 			isa = PBXGroup;
 			children = (
@@ -260,9 +270,7 @@
 				01C8F94620385A44003A92E9 /* Youtube_dl.xcdatamodeld */,
 				01065EFE203D5DC900A89149 /* Helpers */,
 				01065F00203D5DDF00A89149 /* Video+Downloader */,
-				01E0F584203A8D9E00DDEF8E /* UIViewController+Extension.swift */,
-				01E0F586203A8E5F00DDEF8E /* GlobalFunctions.swift */,
-				01E0F592203AAFAD00DDEF8E /* Constants.swift */,
+				01065F01203D5E6300A89149 /* Utils */,
 			);
 			path = "Youtube-dl";
 			sourceTree = "<group>";
