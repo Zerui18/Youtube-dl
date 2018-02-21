@@ -50,7 +50,7 @@ class VideoPlaybackManager{
                     MPMediaItemPropertyTitle: video.title!,
                     MPMediaItemPropertyArtist: video.channelTitle!,
                     MPMediaItemPropertyArtwork: MPMediaItemArtwork(boundsSize: CGSize(width: 480, height: 270), requestHandler:  {_ in
-                        Manager.shared.cache![Request(url: URL(string: "https://i.ytimg.com/vi/\(video.youtubeId!)/hqdefault.jpg")!)] ?? UIImage()
+                        Manager.shared.cache![Request(url: URL(string: "https://i.ytimg.com/vi/\(video.youtubeId!)/hqdefault.jpg")!).processed(key: "", {$0})] ?? UIImage()
                     }),
                     MPMediaItemPropertyPlaybackDuration: video.duration,
                     MPNowPlayingInfoPropertyElapsedPlaybackTime:  self.player.currentTime().seconds
@@ -63,7 +63,6 @@ class VideoPlaybackManager{
     }
     
     private var player: AVPlayer = AVPlayer()
-    
     
     private func _play(video: Video){
         self.currentPlayingVideo = video

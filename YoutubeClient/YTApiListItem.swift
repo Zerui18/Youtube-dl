@@ -10,7 +10,7 @@ import Foundation
 
 public struct YTApiListItem: Decodable {
     
-    public struct ContentDetails: Decodable {
+    public class ContentDetails: Decodable {
         public var itemCount: Int?
         private var duration: String?
         

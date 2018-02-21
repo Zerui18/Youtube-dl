@@ -105,7 +105,7 @@ extension SearchViewController{
                         alert.title = "Success"
                         for (quality, url) in qualityToURL {
                             alert.addAction(UIAlertAction(title: "\(quality)p", style: .default, handler: {_ in
-                                VideoLibraryManager.shared.addVideo(fromItem: item, downloadURL: URL(string: url)!).downloader.startDownloading()
+                                VideoLibraryManager.shared.addVideo(fromItem: item, downloadURL: URL(string: url)!).downloader.resumeDownloading()
                             }))
                         }
                         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

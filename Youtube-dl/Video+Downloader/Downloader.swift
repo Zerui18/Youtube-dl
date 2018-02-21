@@ -27,6 +27,9 @@ class Downloader: NSObject, URLSessionDownloadDelegate {
     var downloadProgress: Double{
         return progress.fractionCompleted
     }
+    var isDownloading: Bool{
+        return task != nil
+    }
     
     private var progress: Progress{
         return task?.progress ?? Progress()
@@ -39,7 +42,7 @@ class Downloader: NSObject, URLSessionDownloadDelegate {
         self.session = URLSession(configuration: .background(withIdentifier: "bg_vd_\(video.uniqueId!.uuidString)"), delegate: self, delegateQueue: nil)
     }
     
-    func startDownloading() {
+    func resumeDownloading() {
         guard task == nil else {
             return
         }
@@ -61,13 +64,8 @@ class Downloader: NSObject, URLSessionDownloadDelegate {
         RunLoop.main.add(timer!, forMode: .commonModes)
     }
     
-    func cancelDownloading(saveResumeData flag: Bool = false) {
-        if flag{
-            task!.cancel(byProducingResumeData: {self.resumeData = $0})
-        }
-        else{
-            task!.cancel()
-        }
+    func cancelDownloading() {
+        task?.cancel()
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -114,7 +112,8 @@ class Downloader: NSObject, URLSessionDownloadDelegate {
 
 extension Notification.Name{
     
-    static let videoAdded = Notification.Name("VideoAddedNotiifcation")
+    static let videoAdded = Notification.Name("VideoAddedNotifcation")
+    static let videoRemoved = Notification.Name("VideoRemovedNotification")
     
     static let videoDownloadProgress = Notification.Name("VideoDownloadProgressNotification")
     static let videoDownloaded = Notification.Name("VideoDownloadedNotification")

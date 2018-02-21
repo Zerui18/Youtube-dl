@@ -29,14 +29,12 @@ class Video: NSManagedObject {
     convenience init(fromItem item: YTApiListItem, downloadURL: URL) {
         self.init(context: CoreDataHelper.shared.context)
         
-        var itemCopy = item
-        
         self.downloadURL = downloadURL
-        self.duration = itemCopy.contentDetails.durationDouble
-        self.title = itemCopy.snippet.title
+        self.duration = item.contentDetails.durationDouble
+        self.title = item.snippet.title
         self.uniqueId = UUID()
-        self.youtubeId = itemCopy.id
-        self.channelTitle = itemCopy.snippet.channelTitle
+        self.youtubeId = item.id
+        self.channelTitle = item.snippet.channelTitle
         
     }
     

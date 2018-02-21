@@ -12,12 +12,23 @@ class VideoLibraryViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupObservers()
+        collectionView!.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:))))
+    }
+    
+    private func setupObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotification(_:)), name: .videoDownloaded, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotification(_:)), name: .videoDownloadFailed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotification(_:)), name: .videoDownloadProgress, object: nil)
         
         NotificationCenter.default.addObserver(forName: .videoAdded, object: nil, queue: OperationQueue.main) { (notification) in
             self.collectionView!.insertItems(at: [IndexPath(item: VideoLibraryManager.shared.numberOfVideos-1, section: 0)])
+        }
+        
+        NotificationCenter.default.addObserver(forName: .videoRemoved, object: nil, queue: OperationQueue.main) { (notification) in
+            let index = notification.userInfo!["index"]! as! Int
+            
+            self.collectionView!.deleteItems(at: [IndexPath(item: index, section: 0)])
         }
     }
     
@@ -31,6 +42,40 @@ class VideoLibraryViewController: UICollectionViewController {
             
             cell.video = video
         }
+    }
+    
+    @objc private func longPress(_ sender: UILongPressGestureRecognizer){
+        guard sender.state == .began,
+            let indexPath = collectionView!.indexPathForItem(at: sender.location(in: collectionView!)) else {
+            return
+        }
+        
+        let video = VideoLibraryManager.shared.allVideos[indexPath.item]
+        
+        let ctr = UIAlertController(title: video.title, message: "", preferredStyle: .alert)
+        
+        if !video.isDownloaded{
+            if video.downloader.isDownloading{
+                ctr.message = "downloading"
+                ctr.addAction(UIAlertAction(title: "Pause", style: .destructive, handler: {_ in
+                    video.downloader.cancelDownloading()
+                }))
+            }
+            else{
+                ctr.message = "paused"
+                ctr.addAction(UIAlertAction(title: "Resume", style: .default, handler: {_ in
+                    video.downloader.resumeDownloading()
+                }))
+            }
+        }
+        
+        ctr.message = "downloaded"
+        ctr.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
+            VideoLibraryManager.shared.removeVideo(atIndex: indexPath.item)
+        }))
+        
+        ctr.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        ctr.present(in: self)
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

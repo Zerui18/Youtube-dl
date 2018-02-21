@@ -53,7 +53,9 @@ public struct YTClient{
                             error = err
                         }
                         else{
-                            results1 = response?.items
+                            results1 = response?.items.filter{
+                                $0.contentDetails.durationDouble > 0.0
+                            }
                         }
                         returnCount += 1
                         checkForCompletion()

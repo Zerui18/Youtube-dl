@@ -34,7 +34,24 @@ class VideoLibraryManager{
     
     func removeVideo(atIndex index: Int){
         let video = allVideos.remove(at: index)
-        try? FileManager.default.removeItem(at: video.localAddress)
+        
+        if video.isDownloaded{
+            do{
+                try FileManager.default.removeItem(at: video.localAddress)
+            }
+            catch{
+                AppDelegate.shared.topViewControler!.alert(title: "Delete Failed", message: error.localizedDescription)
+                return
+            }
+        }
+        else{
+            video.downloader.cancelDownloading()
+        }
+        
+        CoreDataHelper.shared.context.delete(video)
+        CoreDataHelper.shared.tryToSave()
+        
+        NotificationCenter.default.post(name: .videoRemoved, object: video, userInfo: ["index":index])
     }
     
 }
