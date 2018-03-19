@@ -97,7 +97,7 @@ public struct YTURLFetcher{
         let streamMap = streamMapRaw.replacingOccurrences(of: "\\u0026", with: "&").components(separatedBy: ",")
         
         // map streamMap into resultant format
-        let qualityToURL: [(Int, String)] = try streamMap.flatMap{
+        let qualityToURL: [(Int, String)] = try streamMap.compactMap{
             guard let dict = $0.queryDict(), let itag = Int(dict["itag"]!), let urlString = dict["url"], let quality = translation[itag] else{
                 return nil
             }

@@ -11,7 +11,7 @@ import Foundation
 extension String{
     
     func queryDict()-> [String : String]?{
-        let keyValuePairs: [(String, String)] = components(separatedBy: "&").flatMap{
+        let keyValuePairs: [(String, String)] = components(separatedBy: "&").compactMap{
             let parts = $0.components(separatedBy: "=")
             guard parts.count == 2 else{
                 return nil

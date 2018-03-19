@@ -1,0 +1,11 @@
+framework module YoutubeClient {
+  umbrella header "YoutubeClient.h"
+
+  export *
+  module * { export * }
+}
+
+module YoutubeClient.Swift {
+    header "YoutubeClient-Swift.h"
+    requires objc
+}

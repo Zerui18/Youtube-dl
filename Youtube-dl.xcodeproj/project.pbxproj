@@ -15,6 +15,9 @@
 		015BD88E203864FF0069B836 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015BD88D203864FF0069B836 /* URLRequest+Extension.swift */; };
 		015BD890203868600069B836 /* YTApiListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015BD88F203868600069B836 /* YTApiListItem.swift */; };
 		015BD894203875880069B836 /* YTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015BD893203875880069B836 /* YTClient.swift */; };
+		0191BD0C204432D100C42219 /* Pods_Youtube_dl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13E58600E956DD153362B7 /* Pods_Youtube_dl.framework */; };
+		0191BD0D2044336B00C42219 /* YoutubeClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C8F97520385A56003A92E9 /* YoutubeClient.framework */; };
+		0191BD0E2044336B00C42219 /* YoutubeClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01C8F97520385A56003A92E9 /* YoutubeClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01C8F94020385A44003A92E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8F93F20385A44003A92E9 /* AppDelegate.swift */; };
 		01C8F94520385A44003A92E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C8F94320385A44003A92E9 /* Main.storyboard */; };
 		01C8F94820385A44003A92E9 /* Youtube_dl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01C8F94620385A44003A92E9 /* Youtube_dl.xcdatamodeld */; };
@@ -24,8 +27,6 @@
 		01C8F97E20385A56003A92E9 /* YoutubeClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C8F97520385A56003A92E9 /* YoutubeClient.framework */; };
 		01C8F98520385A56003A92E9 /* YoutubeClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8F98420385A56003A92E9 /* YoutubeClientTests.swift */; };
 		01C8F98720385A56003A92E9 /* YoutubeClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C8F97720385A56003A92E9 /* YoutubeClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01C8F98A20385A56003A92E9 /* YoutubeClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C8F97520385A56003A92E9 /* YoutubeClient.framework */; };
-		01C8F98B20385A56003A92E9 /* YoutubeClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01C8F97520385A56003A92E9 /* YoutubeClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01C8F99620385A80003A92E9 /* YTApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8F99520385A80003A92E9 /* YTApiResponse.swift */; };
 		01C8F99820385F86003A92E9 /* YTApiRequestConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8F99720385F86003A92E9 /* YTApiRequestConstructor.swift */; };
 		01E0F585203A8D9E00DDEF8E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E0F584203A8D9E00DDEF8E /* UIViewController+Extension.swift */; };
@@ -46,11 +47,17 @@
 		01F0CD1C203B0DA500D4F6DA /* Video+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F0CD1B203B0DA500D4F6DA /* Video+Properties.swift */; };
 		4D1219364528F02E8909CF36 /* Pods_Youtube_dlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4331E4C6F5AB0A74D1A23910 /* Pods_Youtube_dlTests.framework */; };
 		52671A94F181AE1F2DD6E969 /* Pods_YoutubeClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED95ED94DD2014B8E6365345 /* Pods_YoutubeClient.framework */; };
-		C92B4D8416F586CBC4499669 /* Pods_Youtube_dl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13E58600E956DD153362B7 /* Pods_Youtube_dl.framework */; };
 		E5DF18306C9D8754290F42BF /* Pods_YoutubeClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84FBD0BFD82674C6DE6888F /* Pods_YoutubeClientTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0191BD0F2044336B00C42219 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01C8F93420385A44003A92E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01C8F97420385A56003A92E9;
+			remoteInfo = YoutubeClient;
+		};
 		01C8F95420385A44003A92E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 01C8F93420385A44003A92E9 /* Project object */;
@@ -72,23 +79,16 @@
 			remoteGlobalIDString = 01C8F93B20385A44003A92E9;
 			remoteInfo = "Youtube-dl";
 		};
-		01C8F98820385A56003A92E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 01C8F93420385A44003A92E9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 01C8F97420385A56003A92E9;
-			remoteInfo = YoutubeClient;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		01C8F98F20385A56003A92E9 /* Embed Frameworks */ = {
+		0191BD112044336B00C42219 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				01C8F98B20385A56003A92E9 /* YoutubeClient.framework in Embed Frameworks */,
+				0191BD0E2044336B00C42219 /* YoutubeClient.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,8 +158,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C8F98A20385A56003A92E9 /* YoutubeClient.framework in Frameworks */,
-				C92B4D8416F586CBC4499669 /* Pods_Youtube_dl.framework in Frameworks */,
+				0191BD0C204432D100C42219 /* Pods_Youtube_dl.framework in Frameworks */,
+				0191BD0D2044336B00C42219 /* YoutubeClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,14 +378,14 @@
 				01C8F93820385A44003A92E9 /* Sources */,
 				01C8F93920385A44003A92E9 /* Frameworks */,
 				01C8F93A20385A44003A92E9 /* Resources */,
-				01C8F98F20385A56003A92E9 /* Embed Frameworks */,
 				AAFAFDF5EB1CBAC9C7568609 /* [CP] Embed Pods Frameworks */,
 				F7A17FBD8AACCB9B83BC3AA7 /* [CP] Copy Pods Resources */,
+				0191BD112044336B00C42219 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				01C8F98920385A56003A92E9 /* PBXTargetDependency */,
+				0191BD102044336B00C42219 /* PBXTargetDependency */,
 			);
 			name = "Youtube-dl";
 			productName = "Youtube-dl";
@@ -462,7 +462,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Chen Zerui";
 				TargetAttributes = {
 					01C8F93B20385A44003A92E9 = {
@@ -791,6 +791,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0191BD102044336B00C42219 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01C8F97420385A56003A92E9 /* YoutubeClient */;
+			targetProxy = 0191BD0F2044336B00C42219 /* PBXContainerItemProxy */;
+		};
 		01C8F95520385A44003A92E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 01C8F93B20385A44003A92E9 /* Youtube-dl */;
@@ -805,11 +810,6 @@
 			isa = PBXTargetDependency;
 			target = 01C8F93B20385A44003A92E9 /* Youtube-dl */;
 			targetProxy = 01C8F98120385A56003A92E9 /* PBXContainerItemProxy */;
-		};
-		01C8F98920385A56003A92E9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 01C8F97420385A56003A92E9 /* YoutubeClient */;
-			targetProxy = 01C8F98820385A56003A92E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -847,6 +847,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -854,6 +855,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -904,6 +906,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -911,6 +914,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -944,10 +948,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A43677A77B6C92EF8D11C28 /* Pods-Youtube-dl.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 789MW96BQB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Youtube-dl",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/Youtube-dl/Misc Files/Info.plist";
@@ -962,11 +971,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 670B41332ADC929B4C0F4E04 /* Pods-Youtube-dl.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 789MW96BQB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Youtube-dl",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Youtube-dl/Misc Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Zerui.Youtube-dl";
@@ -1009,6 +1023,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 789MW96BQB;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/YoutubeClient/Info.plist";
@@ -1027,6 +1042,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 789MW96BQB;
 				INFOPLIST_FILE = "$(SRCROOT)/YoutubeClient/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zerui.YoutubeClient;
